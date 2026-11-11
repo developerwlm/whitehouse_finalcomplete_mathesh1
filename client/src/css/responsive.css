@@ -1,0 +1,1253 @@
+/* Add the original responsive stylesheet here: src/css/responsive.css */
+/* ==========================================================================
+   Whitehouse — Responsive Stylesheet (responsive.css)
+   --------------------------------------------------------------------------
+   Mobile-first adjustments are layered on top of style.css.
+   Breakpoints:
+     <= 1200px  Large laptop
+     <= 1024px  Small laptop / tablet landscape
+     <= 991px   Tablet  (mobile navigation activates)
+     <= 768px   Large mobile
+     <= 560px   Mobile
+     <= 400px   Small mobile (iPhone SE / Android compact)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1200px — Large laptops
+   -------------------------------------------------------------------------- */
+/* =========================================================
+   MOBILE LAYOUT FIX — add at the bottom of responsive.css
+   ========================================================= */
+
+   *,
+   *::before,
+   *::after {
+     box-sizing: border-box;
+   }
+   
+   html,
+   body {
+     width: 100%;
+     max-width: 100%;
+     overflow-x: hidden;
+   }
+   
+   img,
+   video,
+   iframe {
+     max-width: 100%;
+   }
+   
+   @media (max-width: 768px) {
+   
+     .container,
+     .container--wide {
+       width: 100%;
+       max-width: 100%;
+       padding-left: 18px;
+       padding-right: 18px;
+     }
+   
+     .header__inner {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       gap: 12px;
+     }
+   
+     .logo img {
+       display: block;
+       width: auto;
+       max-width: 170px;
+       height: auto;
+       max-height: 48px;
+       object-fit: contain;
+     }
+   
+     .hero {
+       width: 100%;
+       padding: 40px 0 50px;
+     }
+   
+     .hero__grid {
+       display: grid;
+       grid-template-columns: minmax(0, 1fr);
+       gap: 30px;
+     }
+   
+     .hero__content,
+     .hero__media {
+       width: 100%;
+       min-width: 0;
+     }
+   
+     .hero__title {
+       font-size: clamp(30px, 8vw, 42px);
+       line-height: 1.15;
+       overflow-wrap: anywhere;
+     }
+   
+     .hero__text {
+       width: 100%;
+       font-size: 15px;
+       line-height: 1.7;
+     }
+   
+     .btn-group {
+       display: flex;
+       flex-wrap: wrap;
+       gap: 12px;
+     }
+   
+     .btn-group .btn {
+       margin-left: 0 !important;
+       flex: 1 1 100%;
+       width: 100%;
+       justify-content: center;
+     }
+   
+     .hero__points {
+       display: flex;
+       flex-direction: column;
+       gap: 12px;
+     }
+   
+     .hero__media img {
+       width: 100%;
+       height: auto;
+       object-fit: contain;
+     }
+   
+     .hero__float--tl {
+       left: 8px;
+     }
+   
+     .hero__float--br {
+       right: 8px;
+     }
+   
+     .section,
+     section {
+       max-width: 100%;
+     }
+   }
+   
+   @media (max-width: 560px) {
+   
+     .container,
+     .container--wide {
+       padding-left: 16px;
+       padding-right: 16px;
+     }
+   
+     .header__inner {
+       min-height: 68px;
+     }
+   
+     .logo img {
+       max-width: 145px;
+       max-height: 42px;
+     }
+   
+     .nav-toggle {
+       flex-shrink: 0;
+     }
+   
+     .hero__title {
+       font-size: clamp(28px, 8vw, 36px);
+     }
+   
+     .hero__float {
+       font-size: 12px;
+     }
+   
+     .card,
+     .panel,
+     .testimonial,
+     .course-card {
+       min-width: 0;
+       max-width: 100%;
+     }
+   }
+   
+   @media (max-width: 1200px) {
+     :root {
+       --section-y: 76px;
+     }
+   
+     .hero__grid {
+       gap: 40px;
+     }
+   
+     .grid {
+       gap: 24px;
+     }
+   
+     .footer__grid {
+       gap: 34px;
+     }
+   
+     .hero__float--tl {
+       left: -10px;
+     }
+   
+     .hero__float--br {
+       right: -10px;
+     }
+   }
+   
+   /* --------------------------------------------------------------------------
+      1024px — Small laptops & tablets (landscape)
+      -------------------------------------------------------------------------- */
+   @media (max-width: 1024px) {
+     .container--wide {
+       max-width: var(--container);
+     }
+   
+     .grid--4,
+     .stats {
+       grid-template-columns: repeat(2, minmax(0, 1fr));
+     }
+   
+     .grid--3 {
+       grid-template-columns: repeat(2, minmax(0, 1fr));
+     }
+   
+     .grid--sidebar,
+     .contact-grid,
+     .detail-hero__grid {
+       grid-template-columns: minmax(0, 1fr);
+       gap: 34px;
+     }
+   
+     .enroll-card {
+       position: static;
+     }
+   
+     .footer__grid {
+       grid-template-columns: repeat(2, minmax(0, 1fr));
+     }
+   
+     .cta {
+       padding: 48px 40px;
+     }
+   
+     .cta__inner {
+       grid-template-columns: minmax(0, 1fr);
+       gap: 26px;
+     }
+   
+     .cta__actions {
+       flex-direction: row;
+       flex-wrap: wrap;
+     }
+   
+     .hero {
+       padding: 56px 0 76px;
+     }
+   
+     .hero__grid {
+       grid-template-columns: minmax(0, 1fr);
+       gap: 46px;
+     }
+   
+     .hero__text {
+       max-width: none;
+     }
+   
+     .split {
+       gap: 40px;
+     }
+   
+     .split--reverse .split__media {
+       order: 0;
+     }
+   }
+   
+   /* --------------------------------------------------------------------------
+      991px — Tablet: mobile navigation
+      -------------------------------------------------------------------------- */
+   @media (max-width: 991px) {
+     :root {
+       --header-h: 68px;
+       --section-y: 64px;
+       --gutter: 18px;
+     }
+   
+     .nav-toggle {
+       display: block;
+     }
+   
+     .nav {
+       position: fixed;
+       top: 0;
+       right: 0;
+       z-index: 95;
+       width: min(340px, 86vw);
+       height: 100vh;
+       height: 100dvh;
+       padding: calc(var(--header-h) + 22px) 24px 34px;
+       background: var(--surface);
+       box-shadow: -14px 0 44px rgba(8, 25, 43, 0.18);
+       display: flex;
+       flex-direction: column;
+       align-items: stretch;
+       justify-content: flex-start;
+       gap: 22px;
+       overflow-y: auto;
+       transform: translateX(102%);
+       visibility: hidden;
+       transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1), visibility 0.4s;
+     }
+   
+     .nav.is-open {
+       transform: translateX(0);
+       visibility: visible;
+     }
+   
+     .nav__list {
+       flex-direction: column;
+       align-items: stretch;
+       gap: 4px;
+     }
+   
+     .nav__link {
+       padding: 14px 16px;
+       font-size: 1rem;
+       border-radius: var(--r-md);
+       border: 1px solid transparent;
+     }
+   
+     .nav__link::after {
+       display: none;
+     }
+   
+     .nav__link:hover,
+     .nav__link.is-active {
+       background: var(--primary-soft);
+       border-color: #cfe0f8;
+     }
+   
+     .nav__cta {
+       flex-direction: column;
+       align-items: stretch;
+       gap: 12px;
+       padding-top: 20px;
+       border-top: 1px solid var(--border);
+     }
+   
+     .nav__cta .btn {
+       width: 100%;
+     }
+   
+     .grid--4,
+     .grid--3 {
+       grid-template-columns: repeat(2, minmax(0, 1fr));
+     }
+   
+     .split {
+       grid-template-columns: minmax(0, 1fr);
+       gap: 34px;
+     }
+   
+     .split__media-stack {
+       max-width: 620px;
+     }
+   
+     .split__badge {
+       left: 16px;
+       bottom: -16px;
+     }
+   
+     .card,
+     .panel {
+       padding: 26px;
+     }
+   
+     .rating-summary {
+       gap: 24px;
+       padding: 26px;
+     }
+   
+     .rating-summary__score {
+       padding-right: 24px;
+     }
+   }
+   
+   /* --------------------------------------------------------------------------
+      768px — Large mobile
+      -------------------------------------------------------------------------- */
+   @media (max-width: 768px) {
+     body {
+       font-size: 15.5px;
+     }
+   
+     :root {
+       --section-y: 56px;
+     }
+   
+     .section-head {
+       margin-bottom: 38px;
+     }
+   
+     .grid,
+     .grid--2,
+     .grid--3,
+     .grid--4,
+     .grid--auto,
+     .stats,
+     .footer__grid {
+       grid-template-columns: minmax(0, 1fr);
+     }
+   
+     .stats {
+       gap: 14px;
+     }
+   
+     .stat {
+       padding: 22px 16px;
+     }
+   
+     .form__row {
+       grid-template-columns: minmax(0, 1fr);
+       gap: 18px;
+     }
+   
+     .hero {
+       padding: 44px 0 62px;
+     }
+   
+     .hero__float {
+       padding: 11px 15px;
+     }
+   
+     .hero__float strong {
+       font-size: 1rem;
+     }
+   
+     .hero__float--tl {
+       top: 12px;
+       left: 12px;
+     }
+   
+     .hero__float--br {
+       bottom: 12px;
+       right: 12px;
+     }
+   
+     .hero__media::before {
+       display: none;
+     }
+   
+     .btn-group .btn {
+       flex: 1 1 auto;
+     }
+   
+     .cta {
+       padding: 40px 26px;
+       border-radius: var(--r-lg);
+     }
+   
+     .cta__actions {
+       flex-direction: column;
+       align-items: stretch;
+     }
+   
+     .filter-bar {
+       padding: 14px;
+       gap: 14px;
+     }
+   
+     .filter {
+       gap: 7px;
+     }
+   
+     .filter__btn {
+       padding: 9px 14px;
+       font-size: 0.8rem;
+     }
+   
+     .filter-result {
+       white-space: normal;
+     }
+   
+     .course-card__footer {
+       flex-direction: column;
+       align-items: stretch;
+     }
+   
+     .course-card__actions {
+       width: 100%;
+     }
+   
+     .course-card__actions .btn {
+       flex: 1 1 120px;
+     }
+   
+     .rating-summary {
+       grid-template-columns: minmax(0, 1fr);
+       gap: 22px;
+       text-align: center;
+     }
+   
+     .rating-summary__score {
+       padding: 0 0 20px;
+       border-right: 0;
+       border-bottom: 1px solid var(--border);
+     }
+   
+     .rating-bar {
+       grid-template-columns: 56px 1fr 42px;
+       font-size: 0.8rem;
+     }
+   
+     .panel {
+       padding: 22px;
+     }
+   
+     .enroll-card {
+       padding: 24px;
+     }
+   
+     .map-embed iframe {
+       height: 280px;
+     }
+   
+     .footer {
+       padding-top: 56px;
+     }
+   
+     .footer__grid {
+       padding-bottom: 40px;
+       gap: 34px;
+     }
+   
+     .footer__bottom {
+       justify-content: center;
+       text-align: center;
+     }
+   
+     .slider__controls {
+       gap: 12px;
+     }
+   
+     .slider__btn {
+       width: 42px;
+       height: 42px;
+     }
+   }
+   
+   /* --------------------------------------------------------------------------
+      560px — Mobile
+      -------------------------------------------------------------------------- */
+   @media (max-width: 560px) {
+     :root {
+       --section-y: 50px;
+       --gutter: 16px;
+       --r-lg: 16px;
+       --r-xl: 20px;
+     }
+   
+     h1 {
+       font-size: clamp(1.7rem, 7.5vw, 2.1rem);
+     }
+   
+     h2 {
+       font-size: clamp(1.36rem, 6vw, 1.7rem);
+     }
+   
+     .lead,
+     .hero__text,
+     .page-hero p {
+       font-size: 1rem;
+     }
+   
+     .btn {
+       padding: 13px 22px;
+       font-size: 0.9rem;
+     }
+   
+     .btn--lg {
+       padding: 15px 26px;
+       font-size: 0.96rem;
+     }
+   
+     .btn--block-mobile {
+       width: 100%;
+     }
+   
+     .logo__mark {
+       width: 38px;
+       height: 38px;
+       border-radius: 11px;
+     }
+   
+     .logo__text strong {
+       font-size: 1.05rem;
+     }
+   
+     .logo__text span {
+       font-size: 0.6rem;
+       letter-spacing: 0.18em;
+     }
+   
+     .page-hero {
+       padding: 46px 0 42px;
+     }
+   
+     .hero__points {
+       gap: 8px 18px;
+     }
+   
+     .hero__point {
+       font-size: 0.86rem;
+     }
+   
+     .card,
+     .panel,
+     .enroll-card,
+     .testimonial {
+       padding: 20px;
+     }
+   
+     .course-card__body {
+       padding: 20px;
+     }
+   
+     .course-card__fee {
+       font-size: 1.1rem;
+     }
+   
+     .course-card__actions {
+       flex-direction: column;
+     }
+   
+     .course-card__actions .btn {
+       width: 100%;
+     }
+   
+     .step {
+       padding: 30px 20px 22px;
+     }
+   
+     .slider__slide {
+       padding: 0 6px;
+     }
+   
+     .slider__viewport {
+       padding: 10px 0 20px;
+       margin: 0;
+     }
+   
+     .value-card {
+       padding: 20px;
+       gap: 14px;
+     }
+   
+     .faq__q {
+       padding: 16px 18px;
+       font-size: 0.95rem;
+     }
+   
+     .faq__a-inner,
+     .syllabus__inner {
+       padding-inline: 18px;
+     }
+   
+     .info-list__item {
+       padding: 15px 0;
+     }
+   
+     .back-to-top {
+       right: 14px;
+       bottom: 14px;
+       width: 46px;
+       height: 46px;
+     }
+   
+     .toast {
+       bottom: 74px;
+       font-size: 0.86rem;
+       padding: 13px 18px;
+     }
+   
+     .split__badge {
+       padding: 12px 16px;
+       gap: 10px;
+     }
+   
+     .split__badge strong {
+       font-size: 1.25rem;
+     }
+   }
+   
+   /* --------------------------------------------------------------------------
+      400px — Small mobile
+      -------------------------------------------------------------------------- */
+   @media (max-width: 400px) {
+     :root {
+       --gutter: 14px;
+     }
+   
+     .logo__text {
+       display: none;
+     }
+   
+     .header__inner {
+       gap: 12px;
+     }
+   
+     .hero__float--br {
+       display: none;
+     }
+   
+     .filter__btn {
+       flex: 1 1 44%;
+       text-align: center;
+     }
+   
+     .badge {
+       font-size: 0.68rem;
+       padding: 5px 10px;
+     }
+   
+     .course-card__meta {
+       gap: 6px 14px;
+       font-size: 0.8rem;
+     }
+   }
+   
+   /* --------------------------------------------------------------------------
+      Landscape phones — prevent content clipping in the hero
+      -------------------------------------------------------------------------- */
+   @media (max-height: 520px) and (orientation: landscape) {
+     .nav {
+       padding-top: 84px;
+     }
+   
+     .hero {
+       padding-top: 36px;
+     }
+   }
+   
+   /* --------------------------------------------------------------------------
+      Print — basic fallback
+      -------------------------------------------------------------------------- */
+   @media print {
+   
+     .header,
+     .footer,
+     .back-to-top,
+     .nav-toggle,
+     .toast,
+     .slider__controls {
+       display: none !important;
+     }
+   
+     body {
+       background: #fff;
+     }
+   
+     html.js-reveal .reveal,
+     .reveal {
+       opacity: 1 !important;
+       transform: none !important;
+       transition: none !important;
+     }
+   }/* Course card buttons – mobile size adjustment */
+   @media (max-width: 600px) {
+     .course-card__actions {
+       gap: 10px !important;
+     }
+   
+     .course-card__actions .btn,
+     .course-card__actions a,
+     .course-card__btn {
+       min-height: 48px !important;
+       height: 48px !important;
+       padding: 10px 16px !important;
+       font-size: 14px !important;
+       border-radius: 14px !important;
+       width: 100%;
+       max-width: 100%;
+     }
+   }
+   
+   @media (max-width: 400px) {
+     .course-card__actions .btn,
+     .course-card__actions a,
+     .course-card__btn {
+       min-height: 44px !important;
+       height: 44px !important;
+       font-size: 13px !important;
+       padding: 8px 12px !important;
+     }
+   }
+   
+   
+   /* ==========================================================================
+      HERO BRAND MARQUEE — compact, responsive layout
+      Keep this block at the end so it overrides earlier marquee/card rules.
+      ========================================================================== */
+   
+   .hero__brands {
+     display: block;
+     width: min(100%, 480px);
+     max-width: 480px;
+     margin: 20px 0 0;
+     overflow: hidden;
+     position: relative;
+     isolation: isolate;
+   }
+   
+   .hero__brands .marquee__track {
+     display: flex;
+     align-items: center;
+     width: max-content;
+     gap: 0;
+     animation: heroBrandScroll 35s linear infinite;
+     will-change: transform;
+   }
+   
+   .hero__brands .marquee__group {
+     display: flex;
+     align-items: center;
+     flex: 0 0 auto;
+     gap: 18px;
+     padding: 0 18px 0 0;
+   }
+   
+   .hero__brands .marquee__item {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex: 0 0 170px;
+     width: 170px !important;
+     min-width: 170px;
+     max-width: 170px;
+     height: 64px !important;
+     min-height: 64px;
+     padding: 10px 16px;
+     overflow: hidden;
+     border-radius: 18px;
+     box-sizing: border-box;
+   }
+   
+   .hero__brands .marquee__logo {
+     display: block;
+     width: auto !important;
+     max-width: 125px !important;
+     height: auto !important;
+     max-height: 38px !important;
+     object-fit: contain;
+     opacity: 0.9;
+     transition: transform 0.3s ease, opacity 0.3s ease;
+   }
+   
+   .hero__brands .marquee__item:hover .marquee__logo {
+     opacity: 1;
+     transform: scale(1.05);
+   }
+   
+   .hero__brands:hover .marquee__track {
+     animation-play-state: paused;
+   }
+   
+   @keyframes heroBrandScroll {
+     from { transform: translateX(0); }
+     to { transform: translateX(-50%); }
+   }
+   
+   @media (max-width: 768px) {
+     .hero__brands {
+       width: 100%;
+       max-width: 100%;
+       margin-top: 18px;
+     }
+   
+     .hero__brands .marquee__group {
+       gap: 14px;
+       padding-right: 14px;
+     }
+   
+     .hero__brands .marquee__item {
+       flex-basis: 145px;
+       width: 145px !important;
+       min-width: 145px;
+       max-width: 145px;
+       height: 58px !important;
+       min-height: 58px;
+       padding: 8px 12px;
+       border-radius: 15px;
+     }
+   
+     .hero__brands .marquee__logo {
+       max-width: 108px !important;
+       max-height: 32px !important;
+     }
+   }
+   
+   @media (max-width: 400px) {
+     .hero__brands .marquee__group {
+       gap: 12px;
+       padding-right: 12px;
+     }
+   
+     .hero__brands .marquee__item {
+       flex-basis: 128px;
+       width: 128px !important;
+       min-width: 128px;
+       max-width: 128px;
+       height: 52px !important;
+       min-height: 52px;
+       padding: 7px 10px;
+       border-radius: 13px;
+     }
+   
+     .hero__brands .marquee__logo {
+       max-width: 96px !important;
+       max-height: 28px !important;
+     }
+   }
+   
+   @media (prefers-reduced-motion: reduce) {
+     .hero__brands .marquee__track {
+       animation: none;
+       transform: none;
+     }
+   }
+   /* FIX: Whitehouse mobile hero responsiveness */
+
+@media (max-width: 991px) {
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+  }
+
+  .hero--cosmic {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero--cosmic .hero__cosmic-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 20px !important;
+    gap: 35px;
+  }
+
+  .hero--cosmic .hero__cosmic-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .hero--cosmic .eyebrow {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  .hero--cosmic .hero__kicker,
+  .hero--cosmic .hero__title,
+  .hero--cosmic .hero__cosmic-text {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+
+  .hero--cosmic .hero__title {
+    font-size: clamp(32px, 7vw, 48px);
+    line-height: 1.12;
+  }
+
+  .hero--cosmic .hero__cosmic-text {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .hero--cosmic .hero__brands {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero--cosmic .hero__cosmic-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .hero--cosmic .hero__cosmic-actions .btn {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    justify-content: center;
+  }
+
+  .hero--cosmic .hero__trust-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .hero--cosmic .hero__cosmic-media {
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .hero--cosmic .hero__image-frame,
+  .hero--cosmic .hero__image-frame img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero--cosmic .hero__cosmic-inner {
+    padding-inline: 16px !important;
+  }
+
+  .hero--cosmic .hero__title {
+    font-size: clamp(29px, 8.5vw, 40px);
+  }
+
+  .hero--cosmic .hero__cosmic-text {
+    font-size: 14px;
+  }
+
+  .hero--cosmic .hero__brands .marquee__item {
+    flex-basis: 125px;
+    width: 125px !important;
+    min-width: 125px;
+    height: 54px !important;
+  }
+
+  .header__inner {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 14px;
+  }
+
+  .logo img {
+    max-width: min(65vw, 220px);
+    height: auto;
+    object-fit: contain;
+  }
+}
+/* =========================================
+   WHITEHOUSE MOBILE NAVIGATION — FINAL
+   Works with Navbar.jsx using React useState
+========================================= */
+
+@media (max-width: 991px) {
+  .header {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .header__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+    flex: 0 0 44px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: 0;
+    border-radius: 10px;
+    background: #171936;
+    cursor: pointer;
+    position: relative;
+    z-index: 1003;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    border-radius: 5px;
+    transition: transform .3s ease, opacity .3s ease;
+  }
+
+  .nav-toggle.is-active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.is-active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: rgba(5, 5, 25, .72);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1001;
+  }
+
+  .nav {
+    position: fixed !important;
+    inset: 0 0 0 auto;
+    width: min(340px, 85vw) !important;
+    max-width: 100%;
+    height: 100vh !important;
+    height: 100dvh !important;
+    margin: 0;
+    padding: 100px 24px 35px !important;
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 25px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #0d1029 !important;
+    box-shadow: -14px 0 44px rgba(0, 0, 0, .28);
+    z-index: 1002;
+
+    transform: translate3d(110%, 0, 0);
+    visibility: hidden;
+    opacity: 1;
+    pointer-events: none;
+    transition:
+      transform .35s ease,
+      visibility .35s ease;
+  }
+
+  .nav.is-open {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav__list {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__list li {
+    display: block;
+    width: 100%;
+  }
+
+  .nav__link {
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 14px 16px !important;
+    color: #fff !important;
+    font-size: 16px;
+    line-height: 1.4;
+    opacity: 1 !important;
+    visibility: visible !important;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 12px;
+  }
+
+  .nav__link:hover,
+  .nav__link.is-active {
+    color: #c4b5fd !important;
+    background: rgba(139, 92, 246, .2) !important;
+    border-color: rgba(139, 92, 246, .4);
+  }
+
+  .nav__link::after {
+    display: none !important;
+  }
+
+  .nav__cta {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px;
+    width: 100%;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, .15);
+  }
+
+  .nav__cta .btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    min-height: 48px;
+  }
+}
+
+/* Desktop navigation reset */
+@media (min-width: 992px) {
+  .nav-overlay,
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .nav {
+    position: static !important;
+    inset: auto;
+    width: auto !important;
+    max-width: none;
+    height: auto !important;
+    margin: 0;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    overflow: visible;
+    background: transparent !important;
+    box-shadow: none;
+    transform: none !important;
+    visibility: visible !important;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

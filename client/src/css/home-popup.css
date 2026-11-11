@@ -1,0 +1,165 @@
+.popup-lock {
+  overflow: hidden;
+}
+
+.enquiry-popup__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(9, 20, 42, .66);
+  backdrop-filter: blur(5px);
+  animation: enquiryFadeIn .25s ease both;
+}
+
+.enquiry-popup {
+  position: relative;
+  width: min(100%, 490px);
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: 42px 36px 30px;
+  border-radius: 22px;
+  background: #fff;
+  color: #17233b;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .25);
+  animation: enquiryPopIn .3s ease both;
+}
+
+.enquiry-popup__close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #f0f3f8;
+  color: #25324a;
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.enquiry-popup__eyebrow {
+  color: #1450a3;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.enquiry-popup h2 {
+  margin: 13px 0 10px;
+  font-size: clamp(23px, 5vw, 31px);
+  line-height: 1.2;
+}
+
+.enquiry-popup p {
+  margin: 0 auto 24px;
+  max-width: 360px;
+  color: #657086;
+  line-height: 1.7;
+}
+
+.enquiry-popup__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.enquiry-popup__primary,
+.enquiry-popup__whatsapp {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 20px;
+  border-radius: 9px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.enquiry-popup__primary {
+  background: #1450a3;
+  color: #fff;
+}
+
+.enquiry-popup__whatsapp {
+  background: #eaf8ef;
+  color: #168344;
+}
+
+.enquiry-popup__later {
+  margin-top: 17px;
+  border: 0;
+  background: transparent;
+  color: #788398;
+  cursor: pointer;
+}
+
+.enquiry-popup__form {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.enquiry-popup__form .form__group + .form__group {
+  margin-top: 14px;
+}
+
+.enquiry-popup__submit {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 20px;
+  border: 0;
+  border-radius: 9px;
+  background: #1450a3;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.enquiry-popup__status {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #657086;
+}
+
+.enquiry-popup__status:empty {
+  display: none;
+}
+
+@keyframes enquiryFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes enquiryPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+  .enquiry-popup {
+    padding: 40px 22px 25px;
+  }
+
+  .enquiry-popup__actions {
+    flex-direction: column;
+  }
+}

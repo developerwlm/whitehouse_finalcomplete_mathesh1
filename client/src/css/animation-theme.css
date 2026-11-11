@@ -1,0 +1,276 @@
+
+/* =========================================================
+   WHITEHOUSE WEBSITE – COMPLETE CSS SCROLL ANIMATIONS
+   CSS ONLY | NO AOS | NO EXTRA JAVASCRIPT
+========================================================= */
+
+/* ---------------------------------------------------------
+   1. BASE REVEAL SETTINGS
+--------------------------------------------------------- */
+
+.reveal,
+.reveal-d1,
+.reveal-d2,
+.reveal-d3,
+.reveal-d4 {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------------------------------------------------------
+   2. SCROLL-BASED ANIMATIONS
+--------------------------------------------------------- */
+
+@supports (animation-timeline: view()) {
+
+  /* Default reveal animation */
+
+  .reveal {
+    animation: wh-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+  }
+
+  /* Stagger animation delays */
+
+  .reveal-d1 {
+    animation: wh-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+    animation-delay: 0.1s;
+  }
+
+  .reveal-d2 {
+    animation: wh-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+    animation-delay: 0.2s;
+  }
+
+  .reveal-d3 {
+    animation: wh-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+    animation-delay: 0.3s;
+  }
+
+  .reveal-d4 {
+    animation: wh-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+    animation-delay: 0.4s;
+  }
+
+  /* Hero section */
+
+  .hero__content .reveal {
+    animation-name: wh-fade-up;
+  }
+
+  .hero__media {
+    animation: wh-fade-left 1.4s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+  }
+
+  /* About section */
+
+  .split__media {
+    animation: wh-fade-right 1.3s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+  }
+
+  /* Section headings */
+
+  .section-head {
+    animation: wh-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 80%;
+  }
+
+  /* Cards */
+
+  .course-card,
+  .feature-card,
+  .trainer-card,
+  .review-card,
+  .info-card {
+    animation: wh-fade-up 1.2s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 85%;
+  }
+
+  /* Buttons */
+
+  .btn {
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      background-color 0.35s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Images */
+
+  .split__media img,
+  .hero__media img {
+    transition: transform 0.6s ease;
+  }
+
+  .split__media:hover img,
+  .hero__media:hover img {
+    transform: scale(1.035);
+  }
+}
+
+/* ---------------------------------------------------------
+   3. KEYFRAME ANIMATIONS
+--------------------------------------------------------- */
+
+/* Fade from bottom */
+
+@keyframes wh-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(65px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade from top */
+
+@keyframes wh-fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-55px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade from left */
+
+@keyframes wh-fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(75px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade from right */
+
+@keyframes wh-fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(-75px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Zoom animation */
+
+@keyframes wh-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------------------------------------------------------
+   4. MOBILE RESPONSIVE ANIMATIONS
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  @supports (animation-timeline: view()) {
+
+    .reveal,
+    .reveal-d1,
+    .reveal-d2,
+    .reveal-d3,
+    .reveal-d4,
+    .hero__media,
+    .split__media,
+    .section-head,
+    .course-card,
+    .feature-card,
+    .trainer-card,
+    .review-card,
+    .info-card {
+      animation-duration: 1s;
+      animation-range: entry 0% entry 75%;
+    }
+
+    .hero__media {
+      animation-name: wh-fade-up;
+    }
+  }
+}
+
+/* ---------------------------------------------------------
+   5. TABLET RESPONSIVE ANIMATIONS
+--------------------------------------------------------- */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  @supports (animation-timeline: view()) {
+
+    .reveal,
+    .reveal-d1,
+    .reveal-d2,
+    .reveal-d3,
+    .reveal-d4 {
+      animation-duration: 1.1s;
+    }
+  }
+}
+
+/* ---------------------------------------------------------
+   6. REDUCED MOTION ACCESSIBILITY
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-d1,
+  .reveal-d2,
+  .reveal-d3,
+  .reveal-d4 {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
