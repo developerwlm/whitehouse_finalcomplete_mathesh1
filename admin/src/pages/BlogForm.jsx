@@ -13,6 +13,8 @@ const EMPTY_BLOG = {
   content: "",
   category: "General",
   tags: [],
+   metaTitle: "",
+  metaDescription: "",
   image: "",
   imageAlt: "",
   author: "Whitehouse Team",
@@ -43,9 +45,12 @@ export default function BlogForm() {
           title: data.title || "",
           slug: data.slug || "",
           excerpt: data.excerpt || "",
+         
           content: data.content || "",
           category: data.category || "General",
           tags: Array.isArray(data.tags) ? data.tags : [],
+          metaTitle: data.metaTitle || "",
+          metaDescription: data.metaDescription || "",
           image: data.image || "",
           imageAlt: data.imageAlt || "",
           author: data.author || "",
@@ -158,14 +163,15 @@ export default function BlogForm() {
             </div>
 
             <div className="field span-2">
-              <label className="field-label">Content (HTML)</label>
+              <label className="field-label">Content</label>
               <textarea
-                className="input textarea code"
+                className="input textarea"
                 rows={10}
                 value={form.content}
                 onChange={(event) => setField("content", event.target.value)}
-                placeholder="<p>Write your post content here…</p>"
+                placeholder={"Write your post content here…\n\nSeparate paragraphs with a blank line."}
               />
+            
             </div>
 
             <ArrayField
@@ -175,6 +181,36 @@ export default function BlogForm() {
               hint="One tag per line."
               rows={4}
             />
+
+             <div className="field span-2">
+              <label className="field-label">Meta title</label>
+              <input
+                className="input"
+                type="text"
+                maxLength={70}
+                value={form.metaTitle}
+                onChange={(event) => setField("metaTitle", event.target.value)}
+                placeholder="SEO title shown in the browser tab and search results"
+              />
+              <p className="field-hint">
+                Up to 70 characters. Leave blank to use the post title.
+              </p>
+            </div>
+
+            <div className="field span-2">
+              <label className="field-label">Meta description</label>
+              <textarea
+                className="input textarea"
+                rows={2}
+                maxLength={170}
+                value={form.metaDescription}
+                onChange={(event) => setField("metaDescription", event.target.value)}
+                placeholder="SEO summary shown in search results"
+              />
+              <p className="field-hint">
+                Up to 170 characters. Leave blank to use the excerpt.
+              </p>
+            </div>
 
             <div className="field">
               <label className="field-label">Author</label>

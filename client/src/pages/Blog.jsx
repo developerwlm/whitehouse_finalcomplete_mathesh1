@@ -7,6 +7,13 @@ import { API_BASE_URL } from "../services/api";
 
 const BLOG_API = `${API_BASE_URL}/api/blogs`;
 
+// Fallbacks used when a post has no SEO fields of its own.
+const DEFAULT_META = {
+  title: "Blog | Whitehouse",
+  description:
+    "Explore practical tips, creative inspiration, and career guidance from the world of technology and digital media.",
+};
+
 // Calculate reading time
 function estimateReadTime(content = "") {
   const text = content.replace(/<[^>]*>/g, " ");
@@ -15,13 +22,68 @@ function estimateReadTime(content = "") {
   return `${Math.max(1, Math.ceil(words.length / 200))} min read`;
 }
 
+function escapeHtml(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function isHtmlContent(content = "") {
+  return /<(p|div|h[1-6]|ul|ol|li|br|strong|em|b|i|span|a|img|table|tr|td|blockquote|figure|section)\b[^>]*>/i.test(
+    content
+  );
+}
+
+/**
+ * Turns the plain-text content written in the admin panel into article HTML:
+ * blank lines start a new paragraph, "## " / "### " lines become headings.
+ */
+function textToHtml(content = "") {
+  const blocks = [];
+  let paragraph = [];
+
+  const flushParagraph = () => {
+    if (paragraph.length) {
+      blocks.push(`<p>${paragraph.map(escapeHtml).join("<br />")}</p>`);
+      paragraph = [];
+    }
+  };
+
+  String(content)
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .forEach((line) => {
+      const text = line.trim();
+      const heading = text.match(/^(#{2,3})\s+(.+)$/);
+
+      if (!text) {
+        flushParagraph();
+      } else if (heading) {
+        flushParagraph();
+
+        const tag = heading[1].length === 2 ? "h2" : "h3";
+        blocks.push(`<${tag}>${escapeHtml(heading[2].trim())}</${tag}>`);
+      } else {
+        paragraph.push(text);
+      }
+    });
+
+  flushParagraph();
+
+  return blocks.join("");
+}
+
 // Generate heading IDs and Table of Contents
 function prepareArticle(html = "") {
   if (typeof window === "undefined") {
     return { html, sections: [] };
   }
 
-  const doc = new DOMParser().parseFromString(html, "text/html");
+  const doc = new DOMParser().parseFromString(
+    isHtmlContent(html) ? html : textToHtml(html),
+    "text/html"
+  );
 
   const sections = [];
 
@@ -161,6 +223,35 @@ export default function Blog() {
       behavior: "instant",
     });
   }, [selectedSlug]);
+
+  // Apply the SEO meta title / description managed from the admin panel.
+  useEffect(() => {
+    const metaTag = document.querySelector('meta[name="description"]');
+    const previousTitle = document.title;
+    const previousDescription = metaTag ? metaTag.getAttribute("content") : "";
+
+    const title = selectedBlog
+      ? selectedBlog.metaTitle || selectedBlog.title || DEFAULT_META.title
+      : DEFAULT_META.title;
+
+    const description = selectedBlog
+      ? selectedBlog.metaDescription || selectedBlog.excerpt || DEFAULT_META.description
+      : DEFAULT_META.description;
+
+    document.title = title;
+
+    if (metaTag && description) {
+      metaTag.setAttribute("content", description);
+    }
+
+    return () => {
+      document.title = previousTitle;
+
+      if (metaTag) {
+        metaTag.setAttribute("content", previousDescription);
+      }
+    };
+  }, [selectedBlog]);
 
   // Categories
   const categories = useMemo(() => {

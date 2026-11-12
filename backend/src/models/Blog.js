@@ -5,9 +5,12 @@ const blogSchema = new mongoose.Schema(
     title: { type: String, required: true, trim: true },
     slug: { type: String, required: true, unique: true, trim: true },
     excerpt: { type: String, default: "" },
+    
     content: { type: String, default: "" },
     category: { type: String, default: "General", trim: true },
     tags: { type: [String], default: [] },
+    metaTitle: { type: String, default: "", trim: true },
+    metaDescription: { type: String, default: "", trim: true },
     image: { type: String, default: "" },
     imageAlt: { type: String, default: "" },
     author: { type: String, default: "Whitehouse Team" },
