@@ -143,9 +143,7 @@ export default function About() {
           <div className="marquee reveal reveal-fade" role="region" aria-label="Brands our learners work with">
             <div className="marquee__track">
               <div className="marquee__group">
-                <div className="marquee__item">
-                  <img className="marquee__logo" src="../assets/images/brands/WhiteLabel-Logo-Final.webp" alt="Whitelabel Media" />
-                </div>
+                
                 <div className="marquee__item">
                   <img className="marquee__logo" src="../assets/images/brands/Bhima-jewellery.webp" alt="Bhima Jewellery" />
                 </div>

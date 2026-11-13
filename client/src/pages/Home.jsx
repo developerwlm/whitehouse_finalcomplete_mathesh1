@@ -14,7 +14,6 @@ import {
 } from 'react-icons/fa';
 
 const brandLogos = [
-  { src: '../assets/images/brands/WhiteLabel-Logo-Final.webp', alt: 'Whitelabel Media' },
   { src: '../assets/images/brands/Bhima-jewellery.webp', alt: 'Bhima Jewellery' },
   { src: '../assets/images/brands/adcb-edtech.webp', alt: 'ADCB EdTech' },
   { src: '../assets/images/brands/Branding-Agency-in-Madurai-Whitelabel-Media-e1792753378166.webp', alt: 'Branding Agency in Madurai' },
@@ -754,9 +753,7 @@ export default function Home() {
           <div className="marquee reveal reveal-fade" role="region" aria-label="Brands our learners work with">
             <div className="marquee__track">
               <div className="marquee__group">
-                <div className="marquee__item">
-                  <img className="marquee__logo" src="../assets/images/brands/WhiteLabel-Logo-Final.webp" alt="Whitelabel Media" />
-                </div>
+               
                 <div className="marquee__item">
                   <img className="marquee__logo" src="../assets/images/brands/Bhima-jewellery.webp" alt="Bhima Jewellery" />
                 </div>
