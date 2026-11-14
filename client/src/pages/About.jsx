@@ -51,7 +51,7 @@ export default function About() {
                 <img src="../assets/images/about/12_9_11zon-scaled.webp" alt="Modern educational campus building with a glass facade and students walking outside"
                   width="900" height="675" loading="lazy" decoding="async" />
               </div>
-             
+
             </div>
 
             <div className="reveal reveal-right reveal-d1">
@@ -143,7 +143,7 @@ export default function About() {
           <div className="marquee reveal reveal-fade" role="region" aria-label="Brands our learners work with">
             <div className="marquee__track">
               <div className="marquee__group">
-                
+
                 <div className="marquee__item">
                   <img className="marquee__logo" src="../assets/images/brands/Bhima-jewellery.webp" alt="Bhima Jewellery" />
                 </div>
@@ -328,23 +328,41 @@ export default function About() {
               site and will be replaced with verified details.
             </p>
 
-            <div className="grid grid--4 mt-3">
-
-              <article className="trainer-card reveal reveal-zoom">
+<div className="trainer-grid mt-3">   
+             <article className="trainer-card reveal reveal-zoom">
                 <div className="trainer-card__media">
-                  <img src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=professional%20corporate%20headshot%20of%20a%20friendly%20indian%20male%20software%20trainer%20wearing%20a%20navy%20blazer%2C%20plain%20light%20studio%20background&;image_size=portrait_4_3"
-                    alt="Portrait of Aarav Iyer, full-stack web development trainer"
-                    width="600" height="450" loading="lazy" decoding="async" />
+                  <img
+                    src="/images/team/naveen-kumar.jpg"
+                    alt="Portrait of Naveen Kumar B, Video Editor, Team Lead and VFX Artist"
+                    width="600"
+                    height="450"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
+
                 <div className="trainer-card__body">
-                  <h3>Aarav Iyer</h3>
-                  <span className="trainer-card__role">Lead Trainer — Full-Stack Web Development</span>
-                  <p>Eleven years of building web products, now teaching full-stack development. Aarav explains complex
-                    architecture with simple analogies and reviews every learner's code personally.</p>
+                  <h3>Naveen Kumar B</h3>
+
+                  <span className="trainer-card__role">
+                    Video Editor — Team Lead & VFX Artist
+                  </span>
+
+                  <p>
+                    Experienced Video Editor and Team Lead at White Label Media,
+                    with contributions to 20 movie projects. Specialised in VFX
+                    compositing, rotoscoping, motion tracking and motion graphics.
+                    Skilled in industry-standard creative software, delivering
+                    high-quality visual content for film productions.
+                  </p>
+
                   <div className="trainer-card__tags">
-                    <span className="badge">HTML&CSS</span>
-                    <span className="badge">JavaScript</span>
-                    <span className="badge">Node.js</span>
+                    <span className="badge">VIDEO EDITING</span>
+                    <span className="badge">VFX COMPOSITING</span>
+                    <span className="badge">ROTOSCOPING</span>
+                    <span className="badge">MOTION TRACKING</span>
+                    <span className="badge">AFTER EFFECTS</span>
+                    <span className="badge">NUKE</span>
                   </div>
                 </div>
               </article>
@@ -412,28 +430,28 @@ export default function About() {
           </div>
         </section>
 
-      
 
-<section className="text-marquee">
-  <div className="text-marquee__track">
-    <span><FaRobot /> AI Video Editing</span>
-    <span><FaCode /> Coding</span>
-    <span><FaVideo /> Video Editing</span>
-    <span><FaBullhorn /> Digital Marketing</span>
-    <span><FaPalette /> Graphic Design</span>
-    <span><FaFilm /> VFX and Animation</span>
-    <span><FaCamera /> Drone Photography</span>
 
-    {/* Duplicate for continuous marquee animation */}
-    <span><FaRobot /> AI Video Editing</span>
-    <span><FaCode /> Coding</span>
-    <span><FaVideo /> Video Editing</span>
-    <span><FaBullhorn /> Digital Marketing</span>
-    <span><FaPalette /> Graphic Design</span>
-    <span><FaFilm /> VFX and Animation</span>
-    <span><FaCamera /> Drone Photography</span>
-  </div>
-</section>
+        <section className="text-marquee">
+          <div className="text-marquee__track">
+            <span><FaRobot /> AI Video Editing</span>
+            <span><FaCode /> Coding</span>
+            <span><FaVideo /> Video Editing</span>
+            <span><FaBullhorn /> Digital Marketing</span>
+            <span><FaPalette /> Graphic Design</span>
+            <span><FaFilm /> VFX and Animation</span>
+            <span><FaCamera /> Drone Photography</span>
+
+            {/* Duplicate for continuous marquee animation */}
+            <span><FaRobot /> AI Video Editing</span>
+            <span><FaCode /> Coding</span>
+            <span><FaVideo /> Video Editing</span>
+            <span><FaBullhorn /> Digital Marketing</span>
+            <span><FaPalette /> Graphic Design</span>
+            <span><FaFilm /> VFX and Animation</span>
+            <span><FaCamera /> Drone Photography</span>
+          </div>
+        </section>
 
 
         <section className="section">
